@@ -132,9 +132,3 @@ Ogni microservizio ha il proprio database separato:
 
 ---
 
-## **8. Conclusione**
-
-Questa documentazione fornisce una guida chiara e dettagliata per implementare **Smart Healthcare System**. Il progetto utilizza le migliori pratiche per architettura a microservizi e include comunicazione sincrona e asincrona, gestione sicura dei dati e scalabilità con Docker/Kubernetes.
-
-Se hai bisogno di approfondimenti o di codice di esempio, fammi sapere! 🚀
-
