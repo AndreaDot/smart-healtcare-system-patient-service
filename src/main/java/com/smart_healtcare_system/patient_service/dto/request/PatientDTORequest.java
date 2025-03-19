@@ -32,4 +32,6 @@ public class PatientDTORequest {
     @NotBlank
     @Pattern(regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", message = "Email non valida!")
     private String email;
+
+    private String telephoneNumber;
 }

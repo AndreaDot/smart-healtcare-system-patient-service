@@ -28,4 +28,7 @@ public class PatientDTOResponse {
     private String city;
 
     private String email;
+
+    private String telephoneNumber;
+
 }

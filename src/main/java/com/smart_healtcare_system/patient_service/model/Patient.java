@@ -35,4 +35,6 @@ public class Patient {
 
     private String email;
 
+    private String telephoneNumber;
+
 }
