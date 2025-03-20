@@ -13,14 +13,14 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class PatientDTORequest {
 
-    @NotBlank(message = "Nome obbligatorio!")
+    @NotBlank(message = "{name.required}")
     private String name;
 
-    @NotBlank(message = "Cognome obbligatorio!")
+    @NotBlank(message = "{surname.required}")
     private String surname;
 
-    @Size(min = 16, max = 16, message = "Codice fiscale deve contenere almeno 16 caratteri!")
-    @Pattern(regexp = "^[A-Z]{6}\\d{2}[A-EHLMPR-T]{1}\\d{2}[A-Z]{1}\\d{3}[A-Z]{1}$", message = "Codice fiscale errato!")
+    @Size(min = 16, max = 16, message = "{ssn.length}")
+    @Pattern(regexp = "^[A-Z]{6}\\d{2}[A-EHLMPR-T]{1}\\d{2}[A-Z]{1}\\d{3}[A-Z]{1}$", message = "{ssn.invalid}")
     private String ssn;
 
     private LocalDate birthDate;
@@ -30,7 +30,7 @@ public class PatientDTORequest {
     private String city;
 
     @NotBlank
-    @Pattern(regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", message = "Email non valida!")
+    @Pattern(regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", message = "{email.invalid}")
     private String email;
 
     private String telephoneNumber;

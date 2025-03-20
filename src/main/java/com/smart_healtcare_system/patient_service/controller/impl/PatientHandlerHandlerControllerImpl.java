@@ -21,7 +21,10 @@ public class PatientHandlerHandlerControllerImpl implements PatientHandlerContro
     @Override
     public ResponseEntity<PatientDTOResponse> createNewPatient(PatientDTORequest patientDTORequest) {
         PatientDTOResponse newPatient = patientHandlerService.createNewPatient(patientDTORequest);
-        return ResponseEntity.status(HttpStatus.CREATED).body(newPatient);
+        if(Objects.nonNull(newPatient)){
+            return ResponseEntity.status(HttpStatus.CREATED).body(newPatient);
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
 
     @Override
@@ -55,6 +58,6 @@ public class PatientHandlerHandlerControllerImpl implements PatientHandlerContro
         if(Objects.nonNull(allPatients)){
             return ResponseEntity.ok(allPatients);
         }
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 }

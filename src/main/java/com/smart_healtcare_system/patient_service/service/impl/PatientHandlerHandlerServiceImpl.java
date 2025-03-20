@@ -25,9 +25,13 @@ public class PatientHandlerHandlerServiceImpl implements PatientHandlerService {
 
     @Override
     public PatientDTOResponse createNewPatient(PatientDTORequest patientDTORequest) {
-        Patient patient = patientMapper.mapDtoRequestToEntity(patientDTORequest);
-        Patient patientSaved = patientRepository.save(patient);
-        return patientMapper.mapEntityToDtoResponse(patientSaved);
+        Optional<Patient> patientBySsn = patientRepository.findBySsn(patientDTORequest.getSsn());
+        if(patientBySsn.isEmpty()){
+            Patient patient = patientMapper.mapDtoRequestToEntity(patientDTORequest);
+            Patient patientSaved = patientRepository.save(patient);
+            return patientMapper.mapEntityToDtoResponse(patientSaved);
+        }
+        return null;
     }
 
     @Override
